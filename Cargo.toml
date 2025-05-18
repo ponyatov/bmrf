@@ -1,8 +1,10 @@
 [package]
-name    = "bmrf"
-version = "0.0.1"
-authors = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
-edition = "2024"
+name        = "bmrf"
+version     = "0.0.1"
+description = "BareMetal Rusted FORTH"
+authors     = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
+repository  = "https://github.com/ponyatov/bmrf"
+edition     = "2024"
 
 [[bin]]
 name  = "bmrf"

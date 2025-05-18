@@ -1,6 +1,4 @@
-// #![allow(unused_variables)]
-// #![allow(dead_code)]
-// #![allow(unused_imports)]
+#![cfg(feature = "linux")]
 
 pub fn args() {
     // \ args
