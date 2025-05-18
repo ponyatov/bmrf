@@ -10,5 +10,5 @@ RTARGET = i686-unknown-uefi
 endif
 
 .PHONY: uefi
-uefi: isolinux
-	$(QEMU) $(QEMU_CFG)
+uefi: bin/$(BINFILE).iso
+	$(QEMU) $(QEMU_CFG) -boot d -cdrom $<
