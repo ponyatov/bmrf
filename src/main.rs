@@ -1,7 +1,8 @@
 #![allow(unused_imports)]
 #![cfg_attr(not(target_os = "linux"), no_std)]
 #![cfg_attr(not(target_os = "linux"), no_main)]
-#![cfg_attr(feature = "raw", lang_items)]
+// #![cfg_attr(feature = "raw", lang_items)]
+#![feature(lang_items)]
 
 #[cfg(feature = "linux")]
 pub mod linux;
@@ -40,6 +41,27 @@ fn main() -> ! {
     args();
     loop {
         tick();
+    }
+}
+
+// see https://docs.rust-embedded.org/embedonomicon/smallest-no-std.html
+#[cfg(feature = "raw")]
+#[lang = "eh_personality"]
+extern "C" fn eh_personality() {}
+
+#[cfg(feature = "raw")]
+use core::panic::PanicInfo;
+#[cfg(feature = "raw")]
+use core::sync::atomic;
+#[cfg(feature = "raw")]
+use core::sync::atomic::Ordering;
+
+#[cfg(feature = "raw")]
+#[inline(never)]
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> ! {
+    loop {
+        atomic::compiler_fence(Ordering::SeqCst);
     }
 }
 

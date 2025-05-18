@@ -1,8 +1,5 @@
 //   "crt-static-default": true,
-//   "dynamic-linking": false,
 //   "frame-pointer": "always",
 //   "position-independent-executables": false,
-//     "executables": true,
-//     "panic-strategy": "abort",
-//     "disable-redzone": true,
 //     "features": "+hard-float,+sse"
+"dynamic-linking-available": false,

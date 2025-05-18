@@ -35,6 +35,7 @@ debug = true
 # hw
 ## hw/x86
 pc              = ["i5"]
+qemu386         = ["i486"]
 ## hw/rpi
 opizero         = ["awh3"]
 rpi3            = ["bcm2837"]
