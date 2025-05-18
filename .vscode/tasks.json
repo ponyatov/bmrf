@@ -46,7 +46,7 @@
             "label"          :  "cargo: run",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run"], //"--target", "thumbv7em-none-eabihf"],
+            "args"           : ["run","--","lib/${workspaceFolderBasename}.ini"], //"--target", "thumbv7em-none-eabihf"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},

@@ -5,3 +5,8 @@ authors = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
 edition = "2024"
 
 [dependencies]
+
+[[bin]]
+name  = "bmrf"
+test  = false
+bench = false
