@@ -72,5 +72,15 @@
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
             "group"          : {"kind": "build", "isDefault": true}
         },
+        {
+            "label"          :  "cargo: i686-pc-bare",
+            "type"           :  "shell",
+            "command"        :  "cargo",
+            "args"           : ["run","--target",".cargo/i686-pc-bare.json","--features","i686,pc,bare"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
     ]
 }
