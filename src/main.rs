@@ -15,8 +15,8 @@ use crate::cortex::args;
 #[cfg(feature = "cortexM")]
 use cortex_m_rt::entry;
 
-
-pub fn main() {
+#[entry]
+fn main() -> ! {
     args();
     #[cfg(feature = "cortexM")]
     loop {
