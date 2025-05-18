@@ -43,10 +43,10 @@
             }
         },
         {
-            "label"          :  "cargo: linux",
+            "label"          :  "cargo: pc",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","--features","linux","--","lib/${workspaceFolderBasename}.ini"],
+            "args"           : ["run","--features","pc","--","lib/${workspaceFolderBasename}.ini"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},

@@ -4,12 +4,12 @@
 #![cfg(feature = "cortexM")]
 #![no_main]
 
-#[cfg(feature = "linux")]
-pub mod linux;
-#[cfg(feature = "linux")]
-use crate::linux::args;
+// #[cfg(feature = "linux")]
+// pub mod linux;
+// #[cfg(feature = "linux")]
+// use crate::linux::args;
 
-#[cfg(feature = "linux")]
+// #[cfg(feature = "linux")]
 fn main() {
     args();
 }

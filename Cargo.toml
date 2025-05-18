@@ -21,21 +21,31 @@ bench = false
 
 [features]
 # hw
-netduinoplus2 = ["stm32f405rg"]
-iskra         = ["stm32f405rg"]
-f4disco       = ["stm32f407vg"]
-f429disco     = ["stm32f429zi"]
-pillF103      = ["stm32f103"]
+## hw/x86
+pc              = ["i5"]
+## hw/stm32
+netduinoplus2   = ["stm32f405rg"]
+iskra           = ["stm32f405rg"]
+f4disco         = ["stm32f407vg"]
+f429disco       = ["stm32f429zi"]
+pillF103        = ["stm32f103"]
 # cpu
-stm32f103   = ["stm32f1"]
-stm32f405rg = ["stm32f4"]
-stm32f407vg = ["stm32f4"]
-stm32f429zi = ["stm32f4"]
+## cpu/x86
+i5              = ["x86_64"]
+i486            = ["i386"]
+i686            = ["i386"]
+## cpu/stm32
+stm32f103       = ["stm32f1"]
+stm32f405rg     = ["stm32f4"]
+stm32f407vg     = ["stm32f4"]
+stm32f429zi     = ["stm32f4"]
 # series
-stm32f1 = ["cortexM"]
-stm32f4 = ["cortexM"]
+stm32f1         = ["cortexM"]
+stm32f4         = ["cortexM"]
 # arch
-cortexM = ["bare"]
+x86_64          = ["linux"]
+i386            = ["linux"]
+cortexM         = ["bare"]
 # os
-linux = []
-bare  = []
+linux           = []
+bare            = []
