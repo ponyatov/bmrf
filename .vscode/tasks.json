@@ -43,24 +43,24 @@
             }
         },
         {
-            "label"          :  "cargo: run",
+            "label"          :  "cargo: linux",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","--","lib/${workspaceFolderBasename}.ini"], //"--target", "thumbv7em-none-eabihf"],
+            "args"           : ["run","--features","linux","--","lib/${workspaceFolderBasename}.ini"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
-            "label"          :  "cargo: blink (M3)",
+            "label"          :  "cargo: qemu",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","-p","blink", "--target", "thumbv7m-none-eabi"],
+            "args"           : ["run","--target", "thumbv7m-none-eabi","--features","cortex"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
-            "group"          : {"kind": "build", "isDefault": false}
+            "group"          : {"kind": "build", "isDefault": true}
         },
     ]
 }
