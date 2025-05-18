@@ -82,5 +82,13 @@
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
             "group"          : {"kind": "build", "isDefault": true}
         },
+        {
+            "label"          : "qemu: uefi",
+            "type"           : "shell",
+            "command"        : "make OS=uefi uefi",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true}
+        },
     ]
 }

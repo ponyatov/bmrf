@@ -8,6 +8,8 @@ ISOLINUX += root/isolinux/reboot.c32
 ISOLINUX += root/isolinux/poweroff.c32
 ISOLINUX += root/isolinux/ls.c32
 ISOLINUX += root/isolinux/cat.c32
+ISOLINUX += root/isolinux/libcom32.c32
+ISOLINUX += root/isolinux/reboot.c32
 
 ISOLINUX += root/EFI/BOOT/ldlinux.e64
 ISOLINUX += root/EFI/BOOT/syslinux.c32
@@ -47,7 +49,7 @@ root/EFI/BOOT/%: /usr/lib/syslinux/modules/efi64/%
 
 root/bin/$(BINFILE).x86_64.linux: target/x86_64-unknown-linux-gnu/debug/$(MODULE)
 	rm -f $(dir $@)*.x86_64.linux ; cp $< $@
-root/bin/$(BINFILE).i686.efi: target/i686-unknown-uefi/debug/$(MODULE)
+root/bin/$(BINFILE).i686.efi: target/i686-unknown-uefi/debug/$(MODULE).efi
 	rm -f $(dir $@)*.i686.efi ; cp $< $@
 root/bin/$(BINFILE).i486.bare: target/i486-pc-bare/debug/$(MODULE).i486.bare
 	rm -f $(dir $@)*.i486.bare ; cp $< $@
@@ -57,3 +59,5 @@ target/x86_64-unknown-linux-gnu/debug/$(MODULE):
 	cargo build --features=pc --target=x86_64-unknown-linux-gnu
 target/i486-pc-bare/debug/$(MODULE).i486.bare:
 	cargo +nightly build -Zbuild-std=core,alloc,compiler_builtins -Zbuild-std-features=compiler-builtins-mem --target .cargo/i486-pc-bare.json --features qemu386
+target/i686-unknown-uefi/debug/$(MODULE).efi:
+	cargo build --target i686-unknown-uefi --features i686,uefi
