@@ -8,8 +8,8 @@
             "cargo": {
                 "args": [
                     "build",
-                    "--features=pc",
                     "--target=x86_64-unknown-linux-gnu",
+                    "--features=pc,linux",
                     // "--bin=${workspaceFolderBasename}",
                     // "--package=${workspaceFolderBasename}"
                 ],
@@ -18,7 +18,7 @@
                 //     "kind": "bin"
                 // }
             },
-            "args": ["1024", "578"],
+            "args": ["lib/${workspaceFolderBasename}.ini", "320", "240"],
             "cwd": "${workspaceFolder}"
         },
     ]
