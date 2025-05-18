@@ -62,5 +62,15 @@
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
             "group"          : {"kind": "build", "isDefault": true}
         },
+        {
+            "label"          :  "cargo: uefi",
+            "type"           :  "shell",
+            "command"        :  "cargo",
+            "args"           : ["run","--target","i686-unknown-uefi","--features","i686,uefi"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
     ]
 }

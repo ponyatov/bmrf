@@ -3,14 +3,16 @@
 [target.aarch64-unknown-linux-gnu]
 [target.i686-pc-windows-gnu]
 runner = "wine"
+[target.i686-unknown-uefi]
+runner = "file"
 
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 runner = "gdb-multiarch -q -x hw/openocd.gdb"
 [target.thumbv7m-none-eabi]
 runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
 [target.thumbv7em-none-eabihf]
-runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
-# runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -kernel"
+# runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
+runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -kernel"
 # runner = "arm-none-eabi-size"
 # runner = "arm-none-eabi-objdump -x"
 # runner = "file"

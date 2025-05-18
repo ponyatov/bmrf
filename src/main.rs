@@ -7,6 +7,13 @@ pub mod linux;
 #[cfg(feature = "linux")]
 use crate::linux::*;
 
+#[cfg(feature = "uefi")]
+pub mod uefi32;
+#[cfg(feature = "uefi")]
+use crate::uefi32::*;
+#[cfg(feature = "uefi")]
+use uefi::prelude::*;
+
 #[cfg(feature = "cortexM")]
 pub mod cortex;
 #[cfg(feature = "cortexM")]

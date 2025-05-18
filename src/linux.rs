@@ -23,3 +23,12 @@ pub fn tick() {
     println!("tick:");
     halt();
 }
+
+pub fn nop() {
+    eprintln!("\tnop\n");
+}
+
+pub fn halt() {
+    eprintln!("\thalt\n");
+    std::process::exit(0);
+}

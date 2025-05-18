@@ -18,6 +18,8 @@ members = []
 
 [target.x86_64-unknown-linux-gnu.dependencies]
 
+[target.i686-unknown-uefi.dependencies]
+
 [target.'cfg(all(target_arch = "arm", target_os = "none"))'.dependencies]
 cortex-m = "0.7.7"
 cortex-m-rt = "0.7.5"
@@ -53,7 +55,7 @@ esp32           = ["xtensa","idf"     ]
 ## cpu/x86
 i5              = ["x86_64","linux"]
 i486            = ["i386"  ,"bare" ]
-i686            = ["i386"  ,"mingw"]
+i686            = ["i386"  ,"uefi" ]
 ## cpu/rpi
 awh3            = ["aarch64"]
 bcm2837         = ["aarch64"]
@@ -81,3 +83,4 @@ mingw           = []
 bare            = []
 rtos8266        = []
 idf             = []
+uefi            = []

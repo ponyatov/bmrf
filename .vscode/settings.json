@@ -75,8 +75,10 @@
     // Rust
     "rust-analyzer.checkOnSave"     : false,
     "rust-analyzer.check.allTargets": false,
-    "rust-analyzer.cargo.target"    : "x86_64-unknown-linux-gnu",
-    "rust-analyzer.cargo.features"  : ["linux"],
+    // "rust-analyzer.cargo.target"    : "x86_64-unknown-linux-gnu",
+    // "rust-analyzer.cargo.features"  : ["linux"],
+    "rust-analyzer.cargo.target"    : "i686-unknown-uefi",
+    "rust-analyzer.cargo.features"  : ["uefi"],
     // cortexM
     // "rust-analyzer.cargo.target"    : "thumbv7em-none-eabihf",
     // "rust-analyzer.cargo.features"  : ["netduinoplus2"],

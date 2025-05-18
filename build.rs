@@ -21,6 +21,9 @@ use std::path::PathBuf;
 #[cfg(feature = "linux")]
 fn main() {}
 
+#[cfg(feature = "uefi")]
+fn main() {}
+
 #[cfg(feature = "cortexM")]
 fn main() {
     // Put `memory.x` in our output directory and ensure it's
