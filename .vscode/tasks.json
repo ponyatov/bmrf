@@ -73,10 +73,10 @@
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
-            "label"          :  "cargo: i686-pc-bare",
+            "label"          :  "cargo: i486-pc-bare",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","--target",".cargo/i686-pc-bare.json","--features","i686,pc,bare,raw"],
+            "args"           : ["run","--target",".cargo/i486-pc-bare.json","--features","i486,pc,bare,raw"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},

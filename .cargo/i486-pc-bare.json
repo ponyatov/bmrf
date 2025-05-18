@@ -1,0 +1,17 @@
+{
+    "llvm-target": "i486-unknown-none",
+    "arch": "x86",
+    "cpu": "i486",
+    "os": "none",
+    "executables": true,
+    "dynamic-linking-available": false,
+    "data-layout": "e-m:e-i32:32-f80:128-n8:16:32-S128-p:32:32",
+    "target-endian": "little",
+    "target-pointer-width": "32",
+    "target-c-int-width": "32",
+    "linker-flavor": "ld.lld",
+    "linker": "rust-lld",
+    "disable-redzone": true,
+    "panic-strategy": "abort",
+    "features": ""
+}
