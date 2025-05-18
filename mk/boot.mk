@@ -13,8 +13,10 @@ ISOLINUX += root/EFI/BOOT/ldlinux.e64
 ISOLINUX += root/EFI/BOOT/syslinux.c32
 
 # ISOLINUX += root/bin/$(BINFILE).uefi
-ISOLINUX += root/bin/$(BINFILE)
 ISOLINUX += root/isolinux/isolinux.cfg
+ISOLINUX += root/bin/$(BINFILE).x86_64.linux
+ISOLINUX += root/bin/$(BINFILE).i386.bare
+ISOLINUX += root/bin/$(BINFILE).x86_64.uefi
 
 root/isolinux/isolinux.cfg: root/bin/$(BINFILE) mk/boot.mk
 	echo "label        $(BINFILE)" >  $@
@@ -26,6 +28,8 @@ isolinux: bin/$(BINFILE).iso
 
 .PHONY: iso
 iso: bin/$(BINFILE).iso
+	$(QEMU) -boot d -cdrom $<
+
 bin/$(BINFILE).iso: $(ISOLINUX) mk/boot.mk
 	xorriso -as mkisofs -o $@ -r root -V $(BINFILE) \
 	-isohybrid-mbr root/isolinux/isohdpfx.bin -b isolinux/isolinux.bin \
@@ -38,7 +42,10 @@ root/isolinux/%: /usr/lib/syslinux/modules/bios/%
 	cp $< $@
 root/EFI/BOOT/%: /usr/lib/syslinux/modules/efi64/%
 	cp $< $@
-root/bin/$(BINFILE).uefi: target/x86_64-unknown-uefi/debug/$(MODULE)
+
+root/bin/$(BINFILE).x86_64.linux: target/x86_64-unknown-linux-gnu/debug/$(MODULE)
 	cp $< $@
-root/bin/$(BINFILE): target/x86_64-unknown-linux-gnu/debug/$(MODULE)
+root/bin/$(BINFILE).x86_64.uefi: target/i686-unknown-uefi/debug/$(MODULE)
+	cp $< $@
+root/bin/$(BINFILE).i386.bare: target//debug/$(MODULE)
 	cp $< $@

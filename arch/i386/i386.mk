@@ -4,3 +4,6 @@ QEMU      = qemu-system-$(ARCH)
 RTARGET   = i686-unknown-$(OS)-gnu
 APT      += gcc-i686-linux-gnu
 QEMU_CFG += -M type=pc,accel=kvm
+
+.PHONY: qemu
+qemu: iso
