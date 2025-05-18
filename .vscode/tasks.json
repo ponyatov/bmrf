@@ -76,7 +76,7 @@
             "label"          :  "cargo: i686-pc-bare",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","--target",".cargo/i686-pc-bare.json","--features","i686,pc,bare"],
+            "args"           : ["run","--target",".cargo/i686-pc-bare.json","--features","i686,pc,bare,raw"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},

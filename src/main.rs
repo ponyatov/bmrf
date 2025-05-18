@@ -1,6 +1,7 @@
 #![allow(unused_imports)]
 #![cfg_attr(not(target_os = "linux"), no_std)]
 #![cfg_attr(not(target_os = "linux"), no_main)]
+#![cfg_attr(feature = "raw", lang_items)]
 
 #[cfg(feature = "linux")]
 pub mod linux;
@@ -8,9 +9,9 @@ pub mod linux;
 use crate::linux::*;
 
 #[cfg(feature = "uefi")]
-pub mod uefi32;
+pub mod uefi64;
 #[cfg(feature = "uefi")]
-use crate::uefi32::*;
+use crate::uefi64::*;
 #[cfg(feature = "uefi")]
 use uefi::prelude::*;
 
@@ -18,6 +19,11 @@ use uefi::prelude::*;
 pub mod bare;
 #[cfg(feature = "bare")]
 use crate::bare::*;
+
+#[cfg(feature = "raw")]
+pub mod raw;
+#[cfg(feature = "raw")]
+use crate::raw::*;
 
 #[cfg(feature = "cortexM")]
 pub mod cortex;
