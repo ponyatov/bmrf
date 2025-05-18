@@ -5,7 +5,7 @@
 #[cfg(feature = "linux")]
 pub mod linux;
 #[cfg(feature = "linux")]
-use crate::linux::args;
+use crate::linux::*;
 
 #[cfg(feature = "cortexM")]
 pub mod cortex;
@@ -15,11 +15,12 @@ use crate::cortex::args;
 #[cfg(feature = "cortexM")]
 use cortex_m_rt::entry;
 
-#[entry]
+#[cfg_attr(feature = "cortexM", entry)]
+#[allow(dead_code)]
 fn main() -> ! {
     args();
-    #[cfg(feature = "cortexM")]
+    init();
     loop {
-        // your code goes here
+        tick();
     }
 }

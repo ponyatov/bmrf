@@ -11,3 +11,4 @@ use cortex_m::asm;
 use cortex_m_rt::entry;
 
 pub fn args() {}
+

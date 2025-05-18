@@ -11,7 +11,8 @@ runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semiho
 [target.thumbv7em-none-eabihf]
 # runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
 # runner = "arm-none-eabi-size"
-runner = "arm-none-eabi-objdump -x"
+# runner = "arm-none-eabi-objdump -x"
+runner = "file"
 
 [target.wasm32-unknown-unknown]
 [target.aarch64-linux-android]
