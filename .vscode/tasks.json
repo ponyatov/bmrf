@@ -25,7 +25,7 @@
         {
             "label"          : "openocd: debug",
             "type"           : "shell",
-            "group"          : {"kind": "build", "isDefault": true},
+            "group"          : {"kind": "build", "isDefault": false},
             "dependsOn"      : "CMake: build",
             "command"        : "openocd -f ${workspaceFolder}/hw/${command:cmake.activeConfigurePresetName}/${command:cmake.activeConfigurePresetName}.ocd -c \"program ${command:cmake.launchTargetPath} verify reset\"",
             "problemMatcher" : [],
@@ -43,10 +43,10 @@
             }
         },
         {
-            "label"          :  "cargo: build",
+            "label"          :  "cargo: run",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["build"], //"--target", "thumbv7em-none-eabihf"],
+            "args"           : ["run"], //"--target", "thumbv7em-none-eabihf"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
@@ -60,7 +60,7 @@
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
-            "group"          : {"kind": "build", "isDefault": true}
+            "group"          : {"kind": "build", "isDefault": false}
         },
     ]
 }
