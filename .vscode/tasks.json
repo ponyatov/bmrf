@@ -1,0 +1,65 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label"          : "project: install",
+            "type"           : "shell",
+            "command"        : "make install",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "project: update",
+            "type"           : "shell",
+            "command"        : "make update",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "git: checkout .vscode",
+            "type"           : "shell",
+            "command"        : "git checkout .vscode/settings.json",
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent"},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "openocd: debug",
+            "type"           : "shell",
+            "group"          : {"kind": "build", "isDefault": true},
+            "dependsOn"      : "CMake: build",
+            "command"        : "openocd -f ${workspaceFolder}/hw/${command:cmake.activeConfigurePresetName}/${command:cmake.activeConfigurePresetName}.ocd -c \"program ${command:cmake.launchTargetPath} verify reset\"",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": true}
+        },
+        {
+            "label"          : "openocd: firmware",
+            "type"           : "shell",
+            "group"          : {"kind": "build", "isDefault": false },
+            "dependsOn"      : "CMake: build",
+            "command"        : "openocd -f ${workspaceFolder}/hw/${command:cmake.activeConfigurePresetName}/${command:cmake.activeConfigurePresetName}.ocd -c \"program ${command:cmake.launchTargetPath} verify reset exit \"",
+            "problemMatcher" : [],
+            "presentation"   : {
+                "showReuseMessage": false, "focus": true, "close": false
+            }
+        },
+        {
+            "label"          :  "cargo: build",
+            "type"           :  "shell",
+            "command"        :  "cargo",
+            "args"           : ["build"], //"--target", "thumbv7em-none-eabihf"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          :  "cargo: blink (M3)",
+            "type"           :  "shell",
+            "command"        :  "cargo",
+            "args"           : ["run","-p","blink", "--target", "thumbv7m-none-eabi"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+}
