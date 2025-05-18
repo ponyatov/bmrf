@@ -2,8 +2,7 @@
 // #![allow(dead_code)]
 // #![allow(unused_imports)]
 
-#[cfg(target_os = "linux")]
-fn main() {
+pub fn args() {
     // \ args
     let argv: Vec<String> = std::env::args().collect();
     let argc = argv.len();
