@@ -1,0 +1,1 @@
+hw/netduinoplus2/netduinoplus2.ld
