@@ -27,10 +27,11 @@ panic-semihosting = "0.6.0"
 ## hw/x86
 pc              = ["i5"]
 ## hw/rpi
-rpi3            = []
+opizero         = ["awh3"]
+rpi3            = ["bcm2837"]
 rpi4            = ["bcm2711"]
 rpi5            = ["bcm2712"]
-pi800           = ["rk3399"]
+opi800          = ["rk3399"]
 ## hw/stm32
 netduinoplus2   = ["stm32f405rg"]
 iskra           = ["stm32f405rg"]
@@ -39,7 +40,7 @@ f429disco       = ["stm32f429zi"]
 pillF103        = ["stm32f103"]
 ## hw/esp
 esp8266         = ["xtensa","rtos8266"]
-esp32           = ["xtensa","idf"]
+esp32           = ["xtensa","idf"     ]
 
 # cpu
 ## cpu/x86
@@ -47,6 +48,8 @@ i5              = ["x86_64","linux"]
 i486            = ["i386"  ,"bare" ]
 i686            = ["i386"  ,"mingw"]
 ## cpu/rpi
+awh3            = ["aarch64"]
+bcm2837         = ["aarch64"]
 bcm2711         = ["aarch64"]
 bcm2712         = ["aarch64"]
 rk3399          = ["aarch64"]
