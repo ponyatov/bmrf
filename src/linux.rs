@@ -1,5 +1,7 @@
 #![cfg(feature = "linux")]
 
+use crate::cmd::*;
+
 pub fn args() {
     println!("args:");
     // \ args
@@ -14,8 +16,10 @@ pub fn args() {
 
 pub fn init() {
     println!("init:");
+    nop();
 }
 
-pub fn tick() -> ! {
-    std::process::exit(0);
+pub fn tick() {
+    println!("tick:");
+    halt();
 }

@@ -10,7 +10,7 @@ use crate::linux::*;
 #[cfg(feature = "cortexM")]
 pub mod cortex;
 #[cfg(feature = "cortexM")]
-use crate::cortex::args;
+use crate::cortex::*;
 
 #[cfg(feature = "cortexM")]
 use cortex_m_rt::entry;
@@ -18,9 +18,11 @@ use cortex_m_rt::entry;
 #[cfg_attr(feature = "cortexM", entry)]
 #[allow(dead_code)]
 fn main() -> ! {
-    args();
     init();
+    args();
     loop {
         tick();
     }
 }
+
+pub mod cmd;
