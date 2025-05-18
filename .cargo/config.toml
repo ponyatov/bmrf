@@ -9,7 +9,8 @@ runner = "gdb-multiarch -q -x hw/openocd.gdb"
 [target.thumbv7m-none-eabi]
 runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
 [target.thumbv7em-none-eabihf]
-runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
+# runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semihosting-config enable=on,target=native -gdb tcp::12345 -S -kernel"
+runner = "arm-none-eabi-size"
 
 [target.wasm32-unknown-unknown]
 [target.aarch64-linux-android]
