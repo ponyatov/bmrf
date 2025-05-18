@@ -15,7 +15,6 @@ panic-semihosting = "0.6.0"
 
 [[bin]]
 name  = "bmrf"
-path  = "src/bmrf.rs"
 test  = false
 bench = false
 
@@ -24,6 +23,11 @@ bench = false
 # hw
 ## hw/x86
 pc              = ["i5"]
+## hw/rpi
+rpi3            = []
+rpi4            = ["bcm2711"]
+rpi5            = ["bcm2712"]
+pi800           = ["rk3399"]
 ## hw/stm32
 netduinoplus2   = ["stm32f405rg"]
 iskra           = ["stm32f405rg"]
@@ -36,9 +40,13 @@ esp32           = ["xtensa","idf"]
 
 # cpu
 ## cpu/x86
-i5              = ["x86_64"]
-i486            = ["i386"]
-i686            = ["i386"]
+i5              = ["x86_64","linux"]
+i486            = ["i386"  ,"bare" ]
+i686            = ["i386"  ,"mingw"]
+## cpu/rpi
+bcm2711         = ["aarch64"]
+bcm2712         = ["aarch64"]
+rk3399          = ["aarch64"]
 ## cpu/stm32
 stm32f103       = ["stm32f1"]
 stm32f405rg     = ["stm32f4"]
@@ -48,8 +56,9 @@ stm32f429zi     = ["stm32f4"]
 stm32f1         = ["cortexM"]
 stm32f4         = ["cortexM"]
 # arch
-x86_64          = ["linux"]
-i386            = ["linux"]
+x86_64          = []
+i386            = []
+aarch64         = ["linux"]
 cortexM         = ["bare"]
 xtensa          = []
 
