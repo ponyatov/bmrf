@@ -76,9 +76,9 @@
     "rust-analyzer.checkOnSave"     : false,
     "rust-analyzer.check.allTargets": false,
     // "rust-analyzer.cargo.target"    : "x86_64-unknown-linux-gnu",
-    // "rust-analyzer.cargo.features"  : ["linux"],
+    // "rust-analyzer.cargo.features"  : ["pc","linux"],
     // "rust-analyzer.cargo.target"    : "i686-unknown-uefi",
-    // "rust-analyzer.cargo.features"  : ["uefi"],
+    // "rust-analyzer.cargo.features"  : ["i686","pc","uefi"],
     "rust-analyzer.cargo.target"    : ".config/i686-pc-bare.json",
     "rust-analyzer.cargo.features"  : ["i686","pc","bare"],
     // cortexM

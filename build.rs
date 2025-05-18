@@ -18,10 +18,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::PathBuf;
 
-#[cfg(feature = "linux")]
-fn main() {}
-
-#[cfg(feature = "uefi")]
+#[cfg(not(feature = "cortexM"))]
 fn main() {}
 
 #[cfg(feature = "cortexM")]

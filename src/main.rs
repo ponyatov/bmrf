@@ -14,6 +14,11 @@ use crate::uefi32::*;
 #[cfg(feature = "uefi")]
 use uefi::prelude::*;
 
+#[cfg(feature = "bare")]
+pub mod bare;
+#[cfg(feature = "bare")]
+use crate::bare::*;
+
 #[cfg(feature = "cortexM")]
 pub mod cortex;
 #[cfg(feature = "cortexM")]

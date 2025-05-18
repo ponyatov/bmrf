@@ -55,7 +55,7 @@ esp32           = ["xtensa","idf"     ]
 ## cpu/x86
 i5              = ["x86_64","linux"]
 i486            = ["i386"  ,"bare" ]
-i686            = ["i386"  ,"uefi" ]
+i686            = ["i386"          ]
 ## cpu/rpi
 awh3            = ["aarch64"]
 bcm2837         = ["aarch64"]
