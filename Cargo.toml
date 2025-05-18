@@ -1,0 +1,7 @@
+[package]
+name    = "bmrf"
+version = "0.0.1"
+authors = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
+edition = "2024"
+
+[dependencies]
