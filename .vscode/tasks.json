@@ -62,4 +62,5 @@
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
             "group"          : {"kind": "build", "isDefault": true}
         },
+    ]
 }
