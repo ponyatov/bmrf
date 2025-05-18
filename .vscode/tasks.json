@@ -76,7 +76,7 @@
             "label"          :  "cargo: qemu386/i486",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["+nightly","run","-Z","build-std","--target",".cargo/i486-pc-bare.json","--features","qemu386"],
+            "args"           : ["+nightly","run","-Zbuild-std=core,alloc,compiler_builtins","-Zbuild-std-features=compiler-builtins-mem","--target",".cargo/i486-pc-bare.json","--features","qemu386"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},

@@ -80,7 +80,7 @@
     // "rust-analyzer.cargo.target"    : "i686-unknown-uefi",
     // "rust-analyzer.cargo.features"  : ["i686","pc","uefi"],
     "rust-analyzer.cargo.target"    : ".config/i686-pc-bare.json",
-    "rust-analyzer.cargo.features"  : ["i686","pc","bare","raw"],
+    "rust-analyzer.cargo.features"  : ["qemu386"],
     // cortexM
     // "rust-analyzer.cargo.target"    : "thumbv7em-none-eabihf",
     // "rust-analyzer.cargo.features"  : ["netduinoplus2"],

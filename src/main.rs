@@ -2,6 +2,8 @@
 #![cfg_attr(not(target_os = "linux"), no_std)]
 #![cfg_attr(not(target_os = "linux"), no_main)]
 // #![cfg_attr(feature = "raw", lang_items)]
+// see https://docs.rust-embedded.org/embedonomicon/smallest-no-std.html
+#![allow(internal_features)]
 #![feature(lang_items)]
 
 #[cfg(feature = "linux")]
@@ -55,6 +57,14 @@ use core::panic::PanicInfo;
 use core::sync::atomic;
 #[cfg(feature = "raw")]
 use core::sync::atomic::Ordering;
+
+#[cfg(feature = "raw")]
+#[unsafe(no_mangle)]
+/// The name **must be** `_start`, otherwise the compiler throws away all code as unused.
+/// The name can be changed by passing a different entry symbol as linker argument.
+fn _start() -> ! {
+    loop {}
+}
 
 #[cfg(feature = "raw")]
 #[inline(never)]

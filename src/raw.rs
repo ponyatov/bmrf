@@ -4,12 +4,3 @@
 // #![no_std]
 // disables Rust runtime init,
 // #![no_main]
-// see https://docs.rust-embedded.org/embedonomicon/smallest-no-std.html
-// #![feature(lang_items)]
-
-#[unsafe(no_mangle)]
-/// The name **must be** `_start`, otherwise the compiler throws away all code as unused.
-/// The name can be changed by passing a different entry symbol as linker argument.
-fn _start() -> ! {
-    loop {}
-}
