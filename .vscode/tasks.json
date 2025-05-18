@@ -56,7 +56,7 @@
             "label"          :  "cargo: netduinoplus2",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["build","--target","thumbv7em-none-eabihf","--features","netduinoplus2"],
+            "args"           : ["run","--target","thumbv7em-none-eabihf","--features","netduinoplus2"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
