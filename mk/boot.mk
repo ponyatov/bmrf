@@ -18,7 +18,7 @@ ISOLINUX += root/isolinux/isolinux.cfg
 BINS += root/bin/$(BINFILE).i486.bare
 BINS += root/bin/$(BINFILE).x86_64.linux
 BINS += root/bin/$(BINFILE).cortexM4.elf
-# BINS += root/bin/$(BINFILE).x86_64.uefi
+BINS += root/bin/$(BINFILE).i686.efi
 
 root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
 	echo "label        $(BINFILE).i486.bare" >  $@
@@ -47,11 +47,13 @@ root/EFI/BOOT/%: /usr/lib/syslinux/modules/efi64/%
 
 root/bin/$(BINFILE).x86_64.linux: target/x86_64-unknown-linux-gnu/debug/$(MODULE)
 	rm -f $(dir $@)*.x86_64.linux ; cp $< $@
-root/bin/$(BINFILE).x86_64.uefi: target/i686-unknown-uefi/debug/$(MODULE)
-	rm -f $(dir $@)*.x86_64.uefi ; cp $< $@
+root/bin/$(BINFILE).i686.efi: target/i686-unknown-uefi/debug/$(MODULE)
+	rm -f $(dir $@)*.i686.efi ; cp $< $@
 root/bin/$(BINFILE).i486.bare: target/i486-pc-bare/debug/$(MODULE).i486.bare
 	rm -f $(dir $@)*.i486.bare ; cp $< $@
 root/bin/$(BINFILE).cortexM4.elf: target/
 
 target/x86_64-unknown-linux-gnu/debug/$(MODULE):
 	cargo build --features=pc --target=x86_64-unknown-linux-gnu
+target/i486-pc-bare/debug/$(MODULE).i486.bare:
+	cargo +nightly build -Zbuild-std=core,alloc,compiler_builtins -Zbuild-std-features=compiler-builtins-mem --target .cargo/i486-pc-bare.json --features qemu386
