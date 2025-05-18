@@ -8,3 +8,4 @@ include mk/format.mk
 include mk/rule.mk
 include mk/doc.mk
 include mk/install.mk
+include mk/boot.mk
