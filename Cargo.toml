@@ -4,6 +4,14 @@ version = "0.0.1"
 authors = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
 edition = "2024"
 
+[[bin]]
+name  = "bmrf"
+test  = false
+bench = false
+
+[workspace]
+members = []
+
 [dependencies]
 
 [target.x86_64-unknown-linux-gnu.dependencies]
@@ -12,11 +20,6 @@ edition = "2024"
 cortex-m = "0.7.7"
 cortex-m-rt = "0.7.5"
 panic-semihosting = "0.6.0"
-
-[[bin]]
-name  = "bmrf"
-test  = false
-bench = false
 
 [features]
 
