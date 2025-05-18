@@ -52,8 +52,10 @@ x86_64          = ["linux"]
 i386            = ["linux"]
 cortexM         = ["bare"]
 xtensa          = []
+
 # os
 linux           = []
+mingw           = []
 bare            = []
 rtos8266        = []
 idf             = []
