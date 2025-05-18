@@ -14,14 +14,15 @@ ISOLINUX += root/EFI/BOOT/syslinux.c32
 
 # ISOLINUX += root/bin/$(BINFILE).uefi
 ISOLINUX += root/isolinux/isolinux.cfg
-ISOLINUX += root/bin/$(BINFILE).x86_64.linux
-ISOLINUX += root/bin/$(BINFILE).i386.bare
-ISOLINUX += root/bin/$(BINFILE).x86_64.uefi
 
-root/isolinux/isolinux.cfg: root/bin/$(BINFILE) mk/boot.mk
-	echo "label        $(BINFILE)" >  $@
-	echo "default      $(BINFILE)" >> $@
-	echo "kernel  /bin/$(BINFILE)" >> $@
+BINS += root/bin/$(BINFILE).i486.bare
+BINS += root/bin/$(BINFILE).x86_64.linux
+# BINS += root/bin/$(BINFILE).x86_64.uefi
+
+root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
+	echo "label        $(BINFILE).i486.bare" >  $@
+	echo "default      $(BINFILE).i486.bare" >> $@
+	echo "kernel  /bin/$(BINFILE).i486.bare" >> $@
 
 .PHONY: isolinux
 isolinux: bin/$(BINFILE).iso
@@ -44,8 +45,11 @@ root/EFI/BOOT/%: /usr/lib/syslinux/modules/efi64/%
 	cp $< $@
 
 root/bin/$(BINFILE).x86_64.linux: target/x86_64-unknown-linux-gnu/debug/$(MODULE)
-	cp $< $@
+	rm -f $(dir $@)*.x86_64.linux ; cp $< $@
 root/bin/$(BINFILE).x86_64.uefi: target/i686-unknown-uefi/debug/$(MODULE)
-	cp $< $@
-root/bin/$(BINFILE).i386.bare: target//debug/$(MODULE)
-	cp $< $@
+	rm -f $(dir $@)*.x86_64.uefi ; cp $< $@
+root/bin/$(BINFILE).i486.bare: target/i486-pc-bare/debug/$(MODULE).i486.bare
+	rm -f $(dir $@)*.i486.bare ; cp $< $@
+
+target/x86_64-unknown-linux-gnu/debug/$(MODULE):
+	cargo build --features=pc --target=x86_64-unknown-linux-gnu

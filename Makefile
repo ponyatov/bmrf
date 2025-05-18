@@ -9,4 +9,3 @@ include mk/rule.mk
 include mk/doc.mk
 include mk/install.mk
 include mk/boot.mk
-include mk/rust.mk
