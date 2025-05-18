@@ -3,6 +3,10 @@ APT += syslinux isolinux xorriso
 ISOLINUX += root/isolinux/isohdpfx.bin
 ISOLINUX += root/isolinux/isohdppx.bin
 ISOLINUX += root/isolinux/isolinux.bin
+ISOLINUX += root/isolinux/ldlinux.c32
+ISOLINUX += root/isolinux/reboot.c32
+ISOLINUX += root/isolinux/poweroff.c32
+ISOLINUX += root/isolinux/ls.c32
 
 ISOLINUX += root/EFI/BOOT/ldlinux.e64
 ISOLINUX += root/EFI/BOOT/syslinux.c32
@@ -19,9 +23,7 @@ bin/$(BINFILE).iso: $(ISOLINUX) mk/boot.mk
 
 root/isolinux/%: /usr/lib/ISOLINUX/%
 	cp $< $@
+root/isolinux/%: /usr/lib/syslinux/modules/bios/%
+	cp $< $@
 root/EFI/BOOT/%: /usr/lib/syslinux/modules/efi64/%
 	cp $< $@
-
-.PHONY: qemu
-qemu: bin/$(BINFILE).iso
-	$(QEMU) -boot d -cdrom $<

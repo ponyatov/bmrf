@@ -17,7 +17,3 @@ elf: $(ELF)
 dfu: $(DFU)
 $(DFU): $(ELF)
 	~/elf2dfuse/bin/elf2dfuse $< $@
-
-.PHONY: qemu
-qemu: $(ELF)
-	$(QEMU) $(QEMU_CFG) -gdb tcp::12345 -S -kernel $<
