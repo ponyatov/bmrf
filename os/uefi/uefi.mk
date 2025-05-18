@@ -1,5 +1,6 @@
-APT      += ovmf ovmf-ia32
+APT      += ovmf ovmf-ia32 isolinux
 QEMU_CFG += -m 128M -bios /usr/share/ovmf/OVMF.fd
+QEMU_CFG += -nic none
 
  TARGET = $(ARCH)-unknown-$(OS)-gnu
 RTARGET = $(ARCH)-unknown-uefi
