@@ -53,10 +53,10 @@
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
-            "label"          :  "cargo: qemu",
+            "label"          :  "cargo: netduinoplus2",
             "type"           :  "shell",
             "command"        :  "cargo",
-            "args"           : ["run","--target", "thumbv7m-none-eabi","--features","cortex"],
+            "args"           : ["build","--target","thumbv7em-none-eabihf","--features","netduinoplus2"],
             "options"        : {"cwd": "${workspaceFolder}"},
             "problemMatcher" : ["$rustc"],
             "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent"},
