@@ -21,7 +21,7 @@ runner = "qemu-system-arm -cpu cortex-m4 -machine netduinoplus2 -nographic -semi
 [target.aarch64-linux-android]
 
 [target.i486-pc-bare]
-runner = "file"
+runner = "qemu-system-i386 -m 1M -machine pc -cpu 486 -nographic -gdb tcp::12345 -kernel"
 
 [unstable]
 build-std = ["core", "alloc", "compiler_builtins"]

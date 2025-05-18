@@ -17,6 +17,7 @@ ISOLINUX += root/isolinux/isolinux.cfg
 
 BINS += root/bin/$(BINFILE).i486.bare
 BINS += root/bin/$(BINFILE).x86_64.linux
+BINS += root/bin/$(BINFILE).cortexM4.elf
 # BINS += root/bin/$(BINFILE).x86_64.uefi
 
 root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
@@ -50,6 +51,7 @@ root/bin/$(BINFILE).x86_64.uefi: target/i686-unknown-uefi/debug/$(MODULE)
 	rm -f $(dir $@)*.x86_64.uefi ; cp $< $@
 root/bin/$(BINFILE).i486.bare: target/i486-pc-bare/debug/$(MODULE).i486.bare
 	rm -f $(dir $@)*.i486.bare ; cp $< $@
+root/bin/$(BINFILE).cortexM4.elf: target/
 
 target/x86_64-unknown-linux-gnu/debug/$(MODULE):
 	cargo build --features=pc --target=x86_64-unknown-linux-gnu

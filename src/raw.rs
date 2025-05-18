@@ -4,3 +4,7 @@
 // #![no_std]
 // disables Rust runtime init,
 // #![no_main]
+
+pub fn init() {}
+pub fn args() {}
+pub fn tick() {}
