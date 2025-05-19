@@ -16,6 +16,13 @@
             "problemMatcher" : []
         },
         {
+            "label"          : "qemu386: multiboot",
+            "type"           : "shell",
+            "command"        : "make HW=qemu386 multiboot",
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true }
+        },
+        {
             "label"          : "git: checkout .vscode",
             "type"           : "shell",
             "command"        : "git checkout .vscode/settings.json",

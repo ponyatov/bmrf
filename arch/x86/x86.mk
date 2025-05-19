@@ -63,3 +63,10 @@ target/i486-pc-bare/debug/$(MODULE).i486.bare:
 	cargo +nightly build -Zbuild-std=core,alloc,compiler_builtins -Zbuild-std-features=compiler-builtins-mem --target .cargo/i486-pc-bare.json --features qemu386
 target/i686-unknown-uefi/debug/$(MODULE).efi:
 	cargo build --target i686-unknown-uefi --features i686,uefi
+
+.PHONY: multiboot
+multiboot: tmp/multiboot2.elf
+
+tmp/%.elf: arch/x86/src/%.s arch/x86/inc/%.h arch/x86/x86.mk
+	gcc -I $(dir $<) -c $< -o $@
+	objdump -xd $@
