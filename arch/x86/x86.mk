@@ -1,5 +1,6 @@
 APT += syslinux isolinux xorriso
 
+QEMU      = qemu-system-$(ARCH)
 
 ISOLINUX += root/isolinux/isohdpfx.bin
 ISOLINUX += root/isolinux/isohdppx.bin
@@ -30,6 +31,9 @@ root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
 
 .PHONY: iso
 iso: bin/$(BINFILE).iso
+
+.PHONY: qemu
+qemu: bin/$(BINFILE).iso
 	$(QEMU) -boot d -cdrom $<
 
 bin/$(BINFILE).iso: $(ISOLINUX) mk/boot.mk

@@ -1,7 +1,7 @@
 OS   ?= bare
 QEMU  = qemu-system-arm
-APT  += gdb-multiarch gcc-arm-none-eabi stlink-tools dfu-util $(QEMU)
+APT  += gcc-arm-none-eabi gdb-multiarch openocd stlink-tools dfu-util $(QEMU)
 
 .PHONY: qemu
 qemu: $(ELF)
-	$(QEMU) $(QEMU_CFG) -gdb tcp::12345 -S -kernel $<
+	$(QEMU) $(QEMU_CFG) -S -kernel $<

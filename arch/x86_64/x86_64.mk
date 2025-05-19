@@ -1,5 +1,7 @@
 include arch/x86/x86.mk
 
+APT      += g++ gdb $(QEMU)
+
 OS       ?= linux
  TARGET   = $(ARCH)-unknown-$(OS)-gnu
 RTARGET   = $(ARCH)-unknown-$(OS)-gnu

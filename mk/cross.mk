@@ -5,6 +5,8 @@ HW ?= pc
 ELF = bin/$(BINFILE).elf
 DFU = bin/$(BINFILE).dfu
 
+QEMU_CFG += -gdb tcp::12345
+
 include   hw/$(HW)/$(HW).mk
 include  cpu/$(CPU)/$(CPU).mk
 include arch/$(ARCH)/$(ARCH).mk

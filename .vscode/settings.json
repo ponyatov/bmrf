@@ -89,6 +89,7 @@
     // "rust-analyzer.cargo.features"  : ["f429disco"],
     // "rust-analyzer.cargo.target"    : "thumbv7m-none-eabi",
     // "rust-analyzer.cargo.features"  : ["pillF103"],
+    // 
     // "rust-analyzer.cargo.target"    : "aarch64-unknown-linux-gnu",
     // "rust-analyzer.cargo.target"    : "wasm32-unknown-unknown",
     // "rust-analyzer.cargo.target"    : "i686-pc-windows-gnu",
