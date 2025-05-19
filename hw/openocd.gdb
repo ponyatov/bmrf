@@ -29,7 +29,7 @@ break main
 # monitor itm port 0 on
 
 # start the process but immediately halt the processor
-# stepi
+stepi
 
 # QEMU
 # monitor help

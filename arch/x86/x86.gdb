@@ -6,3 +6,5 @@ load
 
 break _start
 break multiboot_entry
+
+c
