@@ -21,10 +21,10 @@ ISOLINUX += root/isolinux/isolinux.cfg
 
 BINS += root/bin/$(BINFILE).i486.bare
 BINS += root/bin/$(BINFILE).x86_64.linux
-BINS += root/bin/$(BINFILE).cortexM4.elf
-BINS += root/bin/$(BINFILE).i686.efi
+# BINS += root/bin/$(BINFILE).cortexM4.elf
+# BINS += root/bin/$(BINFILE).i686.efi
 
-root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
+root/isolinux/isolinux.cfg: $(BINS)
 	echo "label        $(BINFILE).i486.bare" >  $@
 	echo "default      $(BINFILE).i486.bare" >> $@
 	echo "kernel  /bin/$(BINFILE).i486.bare" >> $@
@@ -36,8 +36,8 @@ iso: bin/$(BINFILE).iso
 qemu: bin/$(BINFILE).iso
 	$(QEMU) -boot d -cdrom $<
 
-bin/$(BINFILE).iso: $(ISOLINUX) mk/boot.mk
-	xorriso -as mkisofs -o $@ -r root -V $(BINFILE) \
+bin/$(BINFILE).iso: $(ISOLINUX)
+	xorriso -as mkisofs -o $@ -r root -V $(MODULE)@$(HW) \
 	-isohybrid-mbr root/isolinux/isohdpfx.bin -b isolinux/isolinux.bin \
 	-c isolinux/boot.cat -boot-load-size 4 -boot-info-table \
 	-no-emul-boot -isohybrid-gpt-basdat -isohybrid-apm-hfsplus
