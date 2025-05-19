@@ -21,6 +21,7 @@
         "rreverser.ragel",
         "serghei-iakovlev.language-lemon",
         // embedded
+        "basdp.language-gas-x86",
         "dan-c-underwood.arm",
         "zixuanwang.linkerscript",
         "ms-vscode.vscode-serial-monitor",
