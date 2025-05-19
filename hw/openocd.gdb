@@ -3,6 +3,8 @@ target extended-remote :12345
 set print asm-demangle on
 set backtrace limit 32
 
+load
+
 # detect unhandled exceptions, hard faults and panics
 break DefaultHandler
 break HardFault
@@ -25,8 +27,6 @@ break main
 
 # # enable ITM port 0
 # monitor itm port 0 on
-
-load
 
 # start the process but immediately halt the processor
 # stepi

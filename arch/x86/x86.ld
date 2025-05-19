@@ -15,10 +15,13 @@ MEMORY
 SECTIONS {
     /* . = 1M; */
 
+    . = ALIGN(0x10);
+
     .text :
     {
+        . = ALIGN(0x10);
         *(.*boot*)
-        *(.text*)
+        *(.text .text.* .gnu.linkonce.t.*)
     } >RAM
 
     .vga :

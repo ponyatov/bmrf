@@ -1,4 +1,4 @@
-APT += gcc-i686-linux-gnu syslinux isolinux xorriso
+APT += gcc-i686-linux-gnu gdb-multiarch syslinux isolinux xorriso
 
 QEMU      = qemu-system-$(ARCH)
 
@@ -66,9 +66,12 @@ target/i686-unknown-uefi/debug/$(MODULE).efi:
 
 .PHONY: multiboot
 multiboot: tmp/multiboot2.elf
+	$(QEMU) $(QEMU_CFG) -S -kernel $< &
+	gdb-multiarch -q -x arch/x86/x86.gdb $<
 
+BOOT_GCC = i686-linux-gnu-gcc -ffreestanding -nostdlib -o0 -g 
 tmp/%.elf: arch/x86/src/%.s arch/x86/inc/%.h arch/x86/x86.ld arch/x86/x86.mk
-	i686-linux-gnu-gcc -ffreestanding -nostdlib -I $(dir $<)  -o $@.o -c $<
-	i686-linux-gnu-gcc -ffreestanding -nostdlib -T arch/x86/x86.ld -o $@ $@.o
+	$(BOOT_GCC) -I $(dir $<)  -o $@.o -c $<
+	$(BOOT_GCC) -T arch/x86/x86.ld -o $@ $@.o
 	i686-linux-gnu-objdump -xd $@
-	$(QEMU) $(QEMU_CFG) -kernel $@
+	i686-linux-gnu-objdump -h $@.o
