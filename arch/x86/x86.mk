@@ -66,8 +66,8 @@ target/i686-unknown-uefi/debug/$(MODULE).efi:
 
 .PHONY: multiboot
 multiboot: tmp/multiboot2.elf
-	$(QEMU) $(QEMU_CFG) -S -kernel $< &
-	gdb-multiarch -q -x arch/x86/x86.gdb $<
+	$(QEMU) $(QEMU_CFG) -kernel $<
+# gdb-multiarch -q -x arch/x86/x86.gdb $<
 
 BOOT_GCC = i686-linux-gnu-gcc -ffreestanding -nostdlib -o0 -g 
 tmp/%.elf: arch/x86/src/%.s arch/x86/inc/%.h arch/x86/x86.ld arch/x86/x86.mk
