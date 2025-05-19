@@ -16,7 +16,7 @@ Debian_install: Debian_update
 # sudo dpkg --add-architecture i386
 Debian_update:
 	sudo apt update
-	sudo apt install -uy `cat apt.$(WS)` $(APT)
+	sudo apt install -uy `cat apt.$(WS)` $(APT) $(QEMU)
 
 Msys_install: doc ref gz
 	pacman -Suy

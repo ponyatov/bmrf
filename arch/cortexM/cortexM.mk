@@ -1,5 +1,6 @@
-QEMU = qemu-system-arm
-APT += gdb-multiarch gcc-arm-none-eabi stlink-tools dfu-util $(QEMU)
+OS   ?= bare
+QEMU  = qemu-system-arm
+APT  += gdb-multiarch gcc-arm-none-eabi stlink-tools dfu-util $(QEMU)
 
 .PHONY: qemu
 qemu: $(ELF)

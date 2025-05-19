@@ -1,3 +1,5 @@
+include arch/x86/x86.mk
+
 OS       ?= linux
  TARGET   = $(ARCH)-unknown-$(OS)-gnu
 RTARGET   = $(ARCH)-unknown-$(OS)-gnu

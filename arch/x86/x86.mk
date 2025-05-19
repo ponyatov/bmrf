@@ -1,5 +1,6 @@
 APT += syslinux isolinux xorriso
 
+
 ISOLINUX += root/isolinux/isohdpfx.bin
 ISOLINUX += root/isolinux/isohdppx.bin
 ISOLINUX += root/isolinux/isolinux.bin
@@ -26,9 +27,6 @@ root/isolinux/isolinux.cfg: $(BINS) mk/boot.mk
 	echo "label        $(BINFILE).i486.bare" >  $@
 	echo "default      $(BINFILE).i486.bare" >> $@
 	echo "kernel  /bin/$(BINFILE).i486.bare" >> $@
-
-.PHONY: isolinux
-isolinux: bin/$(BINFILE).iso
 
 .PHONY: iso
 iso: bin/$(BINFILE).iso
