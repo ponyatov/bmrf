@@ -1,4 +1,4 @@
-APT += syslinux isolinux xorriso
+APT += gcc-i686-linux-gnu syslinux isolinux xorriso
 
 QEMU      = qemu-system-$(ARCH)
 
@@ -68,5 +68,6 @@ target/i686-unknown-uefi/debug/$(MODULE).efi:
 multiboot: tmp/multiboot2.elf
 
 tmp/%.elf: arch/x86/src/%.s arch/x86/inc/%.h arch/x86/x86.mk
-	gcc -I $(dir $<) -c $< -o $@
-	objdump -xd $@
+	i686-linux-gnu-gcc -I $(dir $<)  -o $@.o -c $<
+	i686-linux-gnu-ld -T arch/x86/x86.ld -o $@ $@.o
+	i686-linux-gnu-objdump -xd $@
