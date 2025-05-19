@@ -121,3 +121,13 @@ loop:   hlt
 
 //         /*  Our stack area. */
 //         .comm   stack, STACK_SIZE
+
+.section .vga
+    .byte 7
+    .byte 'B'
+    .byte 7
+    .byte 'M'
+    .byte 7
+    .byte 'R'
+    .byte 7
+    .byte 'F'

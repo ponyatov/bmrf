@@ -3,17 +3,26 @@ OUTPUT_ARCH(i386)
 
 ENTRY(_start)
 
-SECTIONS {
-    . = 1M;
+_estack = ORIGIN(RAM) + LENGTH(RAM);
 
-    .boot :
-    {
-        /* ensure that the multiboot header is at the beginning */
-        *(.multiboot_header)
-    }
+MEMORY
+{
+    DOS (rw)  : ORIGIN =       0, LENGTH = 1M
+    VGA (rw)  : ORIGIN = 0xb8000, LENGTH = 80*25*2
+    RAM (xrw) : ORIGIN =      1M, LENGTH = 1M
+}
+
+SECTIONS {
+    /* . = 1M; */
 
     .text :
     {
-        *(.text)
-    }
+        *(.*boot*)
+        *(.text*)
+    } >RAM
+
+    .vga :
+    {
+        *(.vga*)
+    } >VGA
 }
